@@ -1,7 +1,7 @@
 from _pytest.python_api import raises
 from faker import Faker
 
-from moneymoney.money import Money, CurrencyCodeIsNoneException, CurrencyIsNotTheSameException
+from moneymoney.money import CurrencyCodeIsNoneException, CurrencyIsNotTheSameException, Money
 
 
 def test_can_create_money():
