@@ -1,16 +1,34 @@
 # moneymoney
 
-Python template
+Money package for Python
 
-# Steps
+[![PyPI](https://img.shields.io/pypi/v/moneymoney)](https://pypi.org/project/moneymoney/)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/w0rmr1d3r/moneymoney)](https://github.com/w0rmr1d3r/moneymoney/releases)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/moneymoney)
+[![PyPi downloads](https://img.shields.io/pypi/dm/moneymoney?label=PyPi%20downloads)](https://pypistats.org/packages/moneymoney)
 
-- [x] Review settings of the repo
-- [x] Add branch protection
-- [x] Replace `moneymoney` everywhere with the name of the new project
-- [x] Solve `todo`s around the files
-- [x] Select a License and update pyproject.toml file accordingly
-- [x] Create virtualenv, install `pip-tools`, freeze dependencies and install dependencies
-- [ ] Create token in PyPi and add to GitHub secrets
-- [x] Create issue template and review community standards
-- [ ] Review [makeareadme.com](https://www.makeareadme.com) to update the readme
-- [ ] Add labels/badges that apply in the readme (version, release, downloads, python supported, ci, tools, etc.)
+## Installation
+
+```bash
+pip install moneymoney
+```
+
+## Usage
+
+```python
+from moneymoney.currency_codes import CurrencyCodes
+from moneymoney.money import Money
+
+quantity = Money(amount=1000, currency_code=CurrencyCodes.EUR)
+```
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first
+to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## License
+
+[GPLv3](LICENSE)
