@@ -1,20 +1,17 @@
 [build-system]
-# todo - check the latest version on this
 requires = ["setuptools>=67.0.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "python-template"
+name = "moneymoney"
 # Make sure this matches the description in GitHub, in the README.md and wherever applies
-description = "python-template"
+description = "Money package for Python"
 readme = "README.md"
 authors = [{ "name" = "w0rmr1d3r" }]
-# todo
-#license = { text = "MIT" }
-# todo
-#classifiers = []
-# todo Make sure this matches the keywords in GitHub
-#keywords = []
+license = { text = "GPLv3" }
+classifiers = []
+# Make sure this matches the keywords in GitHub
+keywords = []
 version = "0.0.1"
 # Minimum supported version
 requires-python = ">=3.9.0"
@@ -24,11 +21,11 @@ dependencies = []
 
 [project.optional-dependencies]
 # Always try to be compatible with these versions and above
-# todo - search for latest versions and update project and template accordingly
 dev = [
     "black>=23.0.0",
     "coverage>=6.3.2",
     "docformatter>=1.5.1",
+    "faker>=15.3.4",
     "flake8>=6.0.0",
     "isort>=5.10.0",
     "pip-tools>=6.5.0",
@@ -37,14 +34,14 @@ dev = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/w0rmr1d3r/python-template"
-"Repository" = "https://github.com/w0rmr1d3r/python-template"
-"Bug Tracker" = "https://github.com/w0rmr1d3r/python-template/issues"
-"Documentation" = "https://github.com/w0rmr1d3r/python-template"
-"Changelog" = "https://github.com/w0rmr1d3r/python-template/releases"
+"Homepage" = "https://github.com/w0rmr1d3r/moneymoney"
+"Repository" = "https://github.com/w0rmr1d3r/moneymoney"
+"Bug Tracker" = "https://github.com/w0rmr1d3r/moneymoney/issues"
+"Documentation" = "https://github.com/w0rmr1d3r/moneymoney"
+"Changelog" = "https://github.com/w0rmr1d3r/moneymoney/releases"
 
 [tool.setuptools]
-packages = ["python-template"]
+packages = ["moneymoney"]
 
 [tool.black]
 line-length = 120
@@ -64,6 +61,6 @@ line_length = 120
 
 [tool.pylint.'MESSAGES CONTROL']
 # C0114 - missing module docstring - does not apply (yet)
-# disable = "C0114"
+disable = "C0114"
 fail-under = 8
 max-line-length = 120
