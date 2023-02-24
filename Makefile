@@ -21,12 +21,12 @@ unit:
 test: lint unit
 
 coverage:
-	coverage run --source=python-template/ --branch -m pytest tests --junitxml=build/test.xml -v
+	coverage run --source=moneymoney/ --branch -m pytest tests --junitxml=build/test.xml -v
 	coverage xml -i -o build/coverage.xml
 	coverage report
 
 py-lint:
-	pylint python-template/
+	pylint moneymoney/
 
 py-lint-test:
 	# C0116 - missing function docstring - does not apply to tests
