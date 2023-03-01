@@ -91,7 +91,7 @@ untokenize==0.1.1
     # via docformatter
 wheel==0.38.4
     # via pip-tools
-wrapt==1.14.1
+wrapt==1.15.0
     # via astroid
 
 # The following packages are considered to be unsafe in a requirements file:
