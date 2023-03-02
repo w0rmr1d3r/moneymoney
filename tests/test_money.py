@@ -36,6 +36,12 @@ def test_money_are_equal():
     assert money_one == money_two
 
 
+def test_money_are_equal_for_same_currency_in_uppercase_and_lowercase():
+    money_one = Money(currency_code="GBP", amount=1.0)
+    money_two = Money(currency_code="gbp", amount=1.0)
+    assert money_one == money_two
+
+
 def test_money_are_not_equal():
     currency_code_one = Faker().currency_code()
     currency_code_two = Faker().currency_code()
@@ -58,6 +64,13 @@ def test_can_add_moneys_of_same_currency():
     assert money_three.currency_code == currency_code
 
 
+def test_can_add_moneys_of_same_currency_different_case_currency_code():
+    money_one = Money(currency_code="GBP", amount=1.0)
+    money_two = Money(currency_code="gbp", amount=3.0)
+    money_three = money_one + money_two
+    assert money_three.amount == 4.0
+
+
 def test_cannot_add_moneys_of_different_currency():
     currency_code_one = Faker().currency_code()
     currency_code_two = Faker().currency_code()
@@ -74,6 +87,13 @@ def test_can_sub_moneys_of_same_currency():
     money_three = money_one - money_two
     assert money_three.amount == -2.0
     assert money_three.currency_code == currency_code
+
+
+def test_can_sub_moneys_of_same_currency_different_case_currency_code():
+    money_one = Money(currency_code="GBP", amount=1.0)
+    money_two = Money(currency_code="gbp", amount=3.0)
+    money_three = money_one - money_two
+    assert money_three.amount == -2.0
 
 
 def test_cannot_sub_moneys_of_different_currency():
