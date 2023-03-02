@@ -26,7 +26,7 @@ docformatter==1.5.1
     # via moneymoney (pyproject.toml)
 exceptiongroup==1.1.0
     # via pytest
-faker==17.4.0
+faker==17.5.0
     # via moneymoney (pyproject.toml)
 flake8==6.0.0
     # via moneymoney (pyproject.toml)
