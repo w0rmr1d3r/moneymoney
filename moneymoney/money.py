@@ -16,7 +16,7 @@ class Money:
     to be of the same currency.
     """
 
-    def __init__(self, currency_code: CurrencyCodes, amount: float = 0.0):
+    def __init__(self, currency_code: str, amount: float = 0.0):
         if currency_code is None:
             raise CurrencyCodeIsNoneException()
         self._amount = amount
