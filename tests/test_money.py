@@ -11,6 +11,12 @@ def test_can_create_money():
     assert money.currency_code == currency_code
 
 
+def test_can_create_money_with_str_as_currency_code():
+    money = Money(currency_code="GBP")
+    assert money.amount == 0.0
+    assert money.currency_code == "GBP"
+
+
 def test_can_print_money():
     currency_code = Faker().currency_code()
     money = Money(currency_code=currency_code)

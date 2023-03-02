@@ -19,7 +19,11 @@ pip install moneymoney
 from moneymoney.currency_codes import CurrencyCodes
 from moneymoney.money import Money
 
-quantity = Money(amount=1000, currency_code=CurrencyCodes.EUR)
+# using a string as currency code
+quantity = Money(amount=1000, currency_code="EUR")
+
+# using currency codes from this package
+quantity_two = Money(amount=1000, currency_code=CurrencyCodes.EUR)
 ```
 
 ## Contributing
