@@ -2,11 +2,11 @@ from moneymoney.currency_codes import CurrencyCodes
 
 
 class CurrencyCodeIsNoneException(Exception):
-    pass
+    """Exception thrown when CurrencyCode is None."""
 
 
 class CurrencyIsNotTheSameException(Exception):
-    pass
+    """Exception thrown when currencies are different."""
 
 
 class Money:
@@ -23,11 +23,13 @@ class Money:
         self._currency_code = currency_code
 
     @property
-    def amount(self):
+    def amount(self) -> float:
+        """Property amount of this object."""
         return self._amount
 
     @property
     def currency_code(self):
+        """Property currency_code of this object."""
         return self._currency_code
 
     def __add__(self, other):
