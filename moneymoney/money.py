@@ -34,7 +34,7 @@ class Money:
 
     def __add__(self, other):
         if isinstance(other, Money):
-            if other.currency_code != self.currency_code:
+            if other.currency_code.lower() != self.currency_code.lower():
                 raise CurrencyIsNotTheSameException()
             other = other.amount
         amount = self.amount + other
@@ -42,7 +42,7 @@ class Money:
 
     def __sub__(self, other):
         if isinstance(other, Money):
-            if other.currency_code != self.currency_code:
+            if other.currency_code.lower() != self.currency_code.lower():
                 raise CurrencyIsNotTheSameException()
             other = other.amount
         amount = self.amount - other
@@ -50,7 +50,7 @@ class Money:
 
     def __eq__(self, other):
         if isinstance(other, Money):
-            return (self._amount == other.amount) and (self._currency_code == other.currency_code)
+            return (self._amount == other.amount) and (self._currency_code.lower() == other.currency_code.lower())
         return False
 
     def __str__(self):
