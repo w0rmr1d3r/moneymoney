@@ -97,8 +97,8 @@ def test_can_sub_moneys_of_same_currency_different_case_currency_code():
 
 
 def test_cannot_sub_moneys_of_different_currency():
-    currency_code_one = Faker().currency_code()
-    currency_code_two = Faker().currency_code()
+    currency_code_one = "EUR"
+    currency_code_two = "USD"
     money_one = Money(currency_code=currency_code_one, amount=1.0)
     money_two = Money(currency_code=currency_code_two, amount=3.0)
     with raises(CurrencyIsNotTheSameException):
