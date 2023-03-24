@@ -1,7 +1,12 @@
 from _pytest.python_api import raises
 from faker import Faker
 
-from moneymoney.money import CurrencyCodeIsNoneException, CurrencyIsNotTheSameException, Money
+from moneymoney.money import (
+    CurrencyCodeIsNoneException,
+    CurrencyIsNotTheSameException,
+    Money,
+    OtherIsNotMoneyInstanceException,
+)
 
 
 def test_can_create_money():
@@ -43,8 +48,8 @@ def test_money_are_equal_for_same_currency_in_uppercase_and_lowercase():
 
 
 def test_money_are_not_equal():
-    currency_code_one = Faker().currency_code()
-    currency_code_two = Faker().currency_code()
+    currency_code_one = "EUR"
+    currency_code_two = "USD"
     money_one = Money(currency_code=currency_code_one, amount=2.0)
     money_two = Money(currency_code=currency_code_two, amount=1.0)
     assert money_one != money_two
@@ -72,12 +77,19 @@ def test_can_add_moneys_of_same_currency_different_case_currency_code():
 
 
 def test_cannot_add_moneys_of_different_currency():
-    currency_code_one = Faker().currency_code()
-    currency_code_two = Faker().currency_code()
+    currency_code_one = "EUR"
+    currency_code_two = "USD"
     money_one = Money(currency_code=currency_code_one, amount=1.0)
     money_two = Money(currency_code=currency_code_two, amount=3.0)
     with raises(CurrencyIsNotTheSameException):
         _ = money_one + money_two
+
+
+def test_cannot_add_money_with_other_type():
+    currency_code_one = "EUR"
+    money_one = Money(currency_code=currency_code_one, amount=1.0)
+    with raises(OtherIsNotMoneyInstanceException):
+        _ = money_one + 2
 
 
 def test_can_sub_moneys_of_same_currency():
@@ -103,3 +115,10 @@ def test_cannot_sub_moneys_of_different_currency():
     money_two = Money(currency_code=currency_code_two, amount=3.0)
     with raises(CurrencyIsNotTheSameException):
         _ = money_one - money_two
+
+
+def test_cannot_sub_money_with_other_type():
+    currency_code_one = "EUR"
+    money_one = Money(currency_code=currency_code_one, amount=1.0)
+    with raises(OtherIsNotMoneyInstanceException):
+        _ = money_one - 2

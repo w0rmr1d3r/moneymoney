@@ -9,6 +9,10 @@ class CurrencyIsNotTheSameException(Exception):
     """Exception thrown when currencies are different."""
 
 
+class OtherIsNotMoneyInstanceException(Exception):
+    """Exception thrown when the other compared is not of Money instance."""
+
+
 class Money:
     """Class representing an amount with a currency.
 
@@ -32,20 +36,25 @@ class Money:
         """Property currency_code of this object."""
         return self._currency_code
 
+    @staticmethod
+    def __assert_other_is_instance_money(other):
+        if not isinstance(other, Money):
+            raise OtherIsNotMoneyInstanceException()
+
+    def __assert_currencies_are_the_same(self, other):
+        if other.currency_code.lower() != self.currency_code.lower():
+            raise CurrencyIsNotTheSameException()
+
     def __add__(self, other):
-        if isinstance(other, Money):
-            if other.currency_code.lower() != self.currency_code.lower():
-                raise CurrencyIsNotTheSameException()
-            other = other.amount
-        amount = self.amount + other
+        self.__assert_other_is_instance_money(other)
+        self.__assert_currencies_are_the_same(other)
+        amount = self.amount + other.amount
         return self.__class__(amount=amount, currency_code=self.currency_code)
 
     def __sub__(self, other):
-        if isinstance(other, Money):
-            if other.currency_code.lower() != self.currency_code.lower():
-                raise CurrencyIsNotTheSameException()
-            other = other.amount
-        amount = self.amount - other
+        self.__assert_other_is_instance_money(other)
+        self.__assert_currencies_are_the_same(other)
+        amount = self.amount - other.amount
         return self.__class__(amount=amount, currency_code=self.currency_code)
 
     def __eq__(self, other):
