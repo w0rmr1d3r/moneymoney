@@ -62,6 +62,26 @@ class Money:
             return (self._amount == other.amount) and (self._currency_code.lower() == other.currency_code.lower())
         return False
 
+    def __lt__(self, other):
+        self.__assert_other_is_instance_money(other)
+        self.__assert_currencies_are_the_same(other)
+        return self._amount < other.amount
+
+    def __le__(self, other):
+        self.__assert_other_is_instance_money(other)
+        self.__assert_currencies_are_the_same(other)
+        return self._amount <= other.amount
+
+    def __gt__(self, other):
+        self.__assert_other_is_instance_money(other)
+        self.__assert_currencies_are_the_same(other)
+        return self._amount > other.amount
+
+    def __ge__(self, other):
+        self.__assert_other_is_instance_money(other)
+        self.__assert_currencies_are_the_same(other)
+        return self._amount >= other.amount
+
     def __str__(self):
         rounded_amount = round(self.amount, 2)
         return f"{rounded_amount}{self.currency_code}"
