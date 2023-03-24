@@ -122,3 +122,27 @@ def test_cannot_sub_money_with_other_type():
     money_one = Money(currency_code=currency_code_one, amount=1.0)
     with raises(OtherIsNotMoneyInstanceException):
         _ = money_one - 2
+
+
+def test_can_compare_less_than_moneys():
+    money_one = Money(currency_code="GBP", amount=1.0)
+    money_two = Money(currency_code="gbp", amount=3.0)
+    assert money_one < money_two
+
+
+def test_can_compare_less_equals_moneys():
+    money_one = Money(currency_code="GBP", amount=1.0)
+    money_two = Money(currency_code="gbp", amount=3.0)
+    assert money_one <= money_two
+
+
+def test_can_compare_greater_than_moneys():
+    money_one = Money(currency_code="GBP", amount=1.0)
+    money_two = Money(currency_code="gbp", amount=3.0)
+    assert money_two > money_one
+
+
+def test_can_compare_greater_equals_moneys():
+    money_one = Money(currency_code="GBP", amount=1.0)
+    money_two = Money(currency_code="gbp", amount=3.0)
+    assert money_two >= money_one
