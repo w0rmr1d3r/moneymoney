@@ -50,6 +50,7 @@ dev = [
 "Bug Tracker" = "https://github.com/w0rmr1d3r/moneymoney/issues"
 "Documentation" = "https://github.com/w0rmr1d3r/moneymoney"
 "Changelog" = "https://github.com/w0rmr1d3r/moneymoney/releases"
+"Funding" = "https://github.com/sponsors/w0rmr1d3r"
 
 [tool.setuptools]
 packages = ["moneymoney"]
