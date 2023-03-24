@@ -10,7 +10,7 @@ class CurrencyIsNotTheSameException(Exception):
 
 
 class OtherIsNotMoneyInstanceException(Exception):
-    """Exception thrown when currencies are different."""
+    """Exception thrown when the other compared is not of Money instance."""
 
 
 class Money:
