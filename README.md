@@ -33,6 +33,10 @@ to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
 
+## Sponsors
+
+Become a sponsor [here](https://github.com/sponsors/w0rmr1d3r)
+
 ## License
 
 [GPLv3](LICENSE)
