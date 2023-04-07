@@ -17,13 +17,21 @@ pip install moneymoney
 
 ```python
 from moneymoney.currency_codes import CurrencyCodes
+from moneymoney.defaults import ONE_EUR
 from moneymoney.money import Money
+from moneymoney.presets import EUR
 
 # using a string as currency code
 quantity = Money(amount=1000, currency_code="EUR")
 
 # using currency codes from this package
 quantity_two = Money(amount=1000, currency_code=CurrencyCodes.EUR)
+
+# using defaults
+my_price = ONE_EUR
+
+# using presets
+my_euro = EUR(amount=1.0)
 ```
 
 ## Contributing

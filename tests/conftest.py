@@ -14,6 +14,11 @@ def one_gbp() -> Money:
 
 
 @pytest.fixture
+def one_usd() -> Money:
+    return Money(currency_code="USD", amount=1.0)
+
+
+@pytest.fixture
 def three_gbp() -> Money:
     return Money(currency_code="gbp", amount=3.0)
 
