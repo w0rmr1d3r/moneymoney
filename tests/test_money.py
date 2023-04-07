@@ -166,3 +166,21 @@ def test_can_left_multiply_money():
     money_one = Money(currency_code="GBP", amount=1.0)
     result = money_one * 3.5
     assert result.amount == 3.5
+
+
+def test_can_neg_money():
+    money_one = Money(currency_code="GBP", amount=1.0)
+    result = -money_one
+    assert result.amount == -1
+
+
+def test_can_neg_of_neg_money():
+    money_one = Money(currency_code="GBP", amount=-1.0)
+    result = -money_one
+    assert result.amount == 1
+
+
+def test_can_abs_money():
+    money_one = Money(currency_code="GBP", amount=-1.0)
+    result = abs(money_one)
+    assert result.amount == 1
