@@ -1,5 +1,6 @@
 from _pytest.python_api import raises
 
+from moneymoney.currency_codes import CurrencyCodes
 from moneymoney.money import (
     CurrencyCodeIsNoneException,
     CurrencyIsNotTheSameException,
@@ -150,3 +151,12 @@ def test_can_abs_money():
     money_one = Money(currency_code="GBP", amount=-1.0)
     result = abs(money_one)
     assert result.amount == 1
+
+
+def test_money_hashable(one_euro):
+    result = hash(one_euro)
+    result_two = hash(Money(currency_code="EUR", amount=1.0))
+    result_three = hash(Money(currency_code=CurrencyCodes.EUR, amount=1.0))
+    assert result == result_two
+    assert result == result_three
+    assert result_two == result_three
