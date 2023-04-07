@@ -60,6 +60,9 @@ class Money:
         amount = self.amount + other.amount
         return self.__class__(amount=amount, currency_code=self.currency_code)
 
+    def __radd__(self, other):
+        return self.__add__(other)
+
     def __sub__(self, other):
         self.__assert_other_is_instance_money(other)
         self.__assert_currencies_are_the_same(other)
@@ -98,6 +101,15 @@ class Money:
         self.__assert_other_is_instance_money(other)
         self.__assert_currencies_are_the_same(other)
         return self._amount >= other.amount
+
+    def __neg__(self):
+        return self.__class__(amount=-self._amount, currency_code=self._currency_code)
+
+    def __pos__(self):
+        return self.__class__(amount=+self._amount, currency_code=self._currency_code)
+
+    def __abs__(self):
+        return self.__class__(amount=abs(self._amount), currency_code=self._currency_code)
 
     def __str__(self):
         rounded_amount = round(self.amount, 2)
