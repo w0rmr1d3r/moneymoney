@@ -77,6 +77,9 @@ class Money:
     def __rmul__(self, other):
         return self.__mul__(other)
 
+    def __hash__(self):
+        return hash((self._amount, self._currency_code))
+
     def __eq__(self, other):
         if isinstance(other, Money):
             return (self._amount == other.amount) and (self._currency_code.lower() == other.currency_code.lower())
