@@ -119,4 +119,5 @@ class Money:
         return f"{rounded_amount}{self.currency_code}"
 
 
+# To be deprecated in next major version
 DEFAULT_MONEY = Money(currency_code=CurrencyCodes.EUR)
