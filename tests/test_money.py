@@ -4,6 +4,7 @@ from moneymoney.money import (
     CurrencyCodeIsNoneException,
     CurrencyIsNotTheSameException,
     Money,
+    OtherIsMoneyInstanceException,
     OtherIsNotMoneyInstanceException,
 )
 
@@ -145,3 +146,23 @@ def test_can_compare_greater_equals_moneys():
     money_one = Money(currency_code="GBP", amount=1.0)
     money_two = Money(currency_code="gbp", amount=3.0)
     assert money_two >= money_one
+
+
+def test_cannot_mul_money_with_other_money():
+    currency_code_one = "EUR"
+    money_one = Money(currency_code=currency_code_one, amount=1.0)
+    money_two = Money(currency_code=currency_code_one, amount=1.0)
+    with raises(OtherIsMoneyInstanceException):
+        _ = money_one * money_two
+
+
+def test_can_right_multiply_money():
+    money_one = Money(currency_code="GBP", amount=1.0)
+    result = 3 * money_one
+    assert result.amount == 3.0
+
+
+def test_can_left_multiply_money():
+    money_one = Money(currency_code="GBP", amount=1.0)
+    result = money_one * 3.5
+    assert result.amount == 3.5

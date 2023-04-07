@@ -13,6 +13,10 @@ class OtherIsNotMoneyInstanceException(Exception):
     """Exception thrown when the other compared is not of Money instance."""
 
 
+class OtherIsMoneyInstanceException(Exception):
+    """Exception thrown when the other is of Money instance."""
+
+
 class Money:
     """Class representing an amount with a currency.
 
@@ -41,6 +45,11 @@ class Money:
         if not isinstance(other, Money):
             raise OtherIsNotMoneyInstanceException()
 
+    @staticmethod
+    def __assert_other_is_not_instance_of_money(other):
+        if isinstance(other, Money):
+            raise OtherIsMoneyInstanceException()
+
     def __assert_currencies_are_the_same(self, other):
         if other.currency_code.lower() != self.currency_code.lower():
             raise CurrencyIsNotTheSameException()
@@ -56,6 +65,14 @@ class Money:
         self.__assert_currencies_are_the_same(other)
         amount = self.amount - other.amount
         return self.__class__(amount=amount, currency_code=self.currency_code)
+
+    def __mul__(self, other):
+        self.__assert_other_is_not_instance_of_money(other)
+        amount = self._amount * other
+        return self.__class__(amount=amount, currency_code=self.currency_code)
+
+    def __rmul__(self, other):
+        return self.__mul__(other)
 
     def __eq__(self, other):
         if isinstance(other, Money):
