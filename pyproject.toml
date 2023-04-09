@@ -21,8 +21,8 @@ classifiers = [
     "Topic :: Software Development :: Libraries",
 ]
 # Make sure this matches the keywords in GitHub
-keywords = ["currency", "python", "money"]
-version = "1.0.0"
+keywords = ["currency", "python", "money", "finance"]
+version = "1.1.0"
 # Minumum supported version
 # If supporting newer versions, update ->  CI and classifiers
 # If minimum supported version changes, update -> CI, coverage, lint, release and classifiers.
