@@ -7,6 +7,7 @@ from moneymoney.money import (
     Money,
     OtherIsMoneyInstanceException,
     OtherIsNotMoneyInstanceException,
+    OtherIsZeroException,
 )
 
 
@@ -160,3 +161,13 @@ def test_money_hashable(one_euro):
     assert result == result_two
     assert result == result_three
     assert result_two == result_three
+
+
+def test_money_has_division(three_usd):
+    result = three_usd / 3
+    assert result.amount == 1
+
+
+def test_cannot_div_by_zero(one_euro):
+    with raises(OtherIsZeroException):
+        _ = one_euro / 0
