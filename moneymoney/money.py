@@ -17,6 +17,10 @@ class OtherIsMoneyInstanceException(Exception):
     """Exception thrown when the other is of Money instance."""
 
 
+class OtherIsZeroException(Exception):
+    """Exception thrown when the other is equal to zero."""
+
+
 class Money:
     """Class representing an amount with a currency.
 
@@ -54,6 +58,11 @@ class Money:
         if other.currency_code.lower() != self.currency_code.lower():
             raise CurrencyIsNotTheSameException()
 
+    @staticmethod
+    def __assert_other_is_not_zero(other):
+        if other == 0:
+            raise OtherIsZeroException()
+
     def __add__(self, other):
         self.__assert_other_is_instance_money(other)
         self.__assert_currencies_are_the_same(other)
@@ -76,6 +85,12 @@ class Money:
 
     def __rmul__(self, other):
         return self.__mul__(other)
+
+    def __truediv__(self, other):
+        self.__assert_other_is_not_instance_of_money(other)
+        self.__assert_other_is_not_zero(other)
+        amount = self._amount / other
+        return self.__class__(amount=amount, currency_code=self._currency_code)
 
     def __hash__(self):
         return hash((self._amount, self._currency_code))
