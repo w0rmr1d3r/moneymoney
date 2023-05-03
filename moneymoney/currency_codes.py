@@ -5,7 +5,8 @@ from enum import Enum, unique
 class CurrencyCodes(str, Enum):
     """Currency codes to use.
 
-    Feel free to increase the enum as needed. They need to be of type "str".
+    Feel free to increase the enum as needed. They need to be of type
+    "str".
 
     Inherits from "str" so it can be serialized to a JSON.
     """
