@@ -36,7 +36,7 @@ my_price = ONE_EUR
 my_euro = EUR(amount=1.0)
 ```
 
-### Operations
+### Some possible operations
 
 You can `add`, `subtract`, `multiply` and `divide` money!
 ```python
