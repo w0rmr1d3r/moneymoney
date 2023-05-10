@@ -15,6 +15,8 @@ pip install moneymoney
 
 ## Usage
 
+### Base usages
+
 ```python
 from moneymoney.currency_codes import CurrencyCodes
 from moneymoney.defaults import ONE_EUR
@@ -32,6 +34,31 @@ my_price = ONE_EUR
 
 # using presets
 my_euro = EUR(amount=1.0)
+```
+
+### Some possible operations
+
+You can `add`, `subtract`, `multiply` and `divide` money!
+```python
+from moneymoney.money import Money
+
+# add
+money_a = Money(currency_code="EUR", amount=3.0)
+money_b = Money(currency_code="EUR", amount=2.0)
+money_c = money_a + money_b  # equal to Money(currency_code="EUR", amount=5.0)
+
+# subtract
+money_a = Money(currency_code="EUR", amount=3.0)
+money_b = Money(currency_code="EUR", amount=2.0)
+money_c = money_a - money_b  # equal to Money(currency_code="EUR", amount=1.0)
+
+# multiply
+money_a = Money(currency_code="EUR", amount=3.0)
+money_b = money_a * 3  # equal to Money(currency_code="EUR", amount=9.0)
+
+# divide
+money_a = Money(currency_code="EUR", amount=3.0)
+money_b = money_a / 3  # equal to Money(currency_code="EUR", amount=1.0)
 ```
 
 ## Contributing
