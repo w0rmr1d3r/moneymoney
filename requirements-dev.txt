@@ -20,7 +20,7 @@ coverage==7.2.7
     # via moneymoney (pyproject.toml)
 dill==0.3.6
     # via pylint
-docformatter==1.7.3
+docformatter==1.7.5
     # via moneymoney (pyproject.toml)
 exceptiongroup==1.1.1
     # via pytest
