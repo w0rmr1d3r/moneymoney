@@ -18,7 +18,7 @@ click==8.1.3
     #   pip-tools
 coverage==7.2.7
     # via moneymoney (pyproject.toml)
-dill==0.3.6
+dill==0.3.7
     # via pylint
 docformatter==1.7.5
     # via moneymoney (pyproject.toml)
