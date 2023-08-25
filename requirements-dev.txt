@@ -16,7 +16,7 @@ click==8.1.6
     # via
     #   black
     #   pip-tools
-coverage==7.2.7
+coverage==7.3.0
     # via moneymoney (pyproject.toml)
 dill==0.3.7
     # via pylint
