@@ -16,7 +16,7 @@ click==8.1.7
     # via
     #   black
     #   pip-tools
-coverage==7.3.0
+coverage==7.3.2
     # via moneymoney (pyproject.toml)
 dill==0.3.7
     # via pylint
@@ -82,7 +82,7 @@ untokenize==0.1.1
     # via docformatter
 wheel==0.41.2
     # via pip-tools
-wrapt==1.15.0
+wrapt==1.16.0
     # via astroid
 
 # The following packages are considered to be unsafe in a requirements file:
