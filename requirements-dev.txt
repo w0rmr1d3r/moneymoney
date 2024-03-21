@@ -6,7 +6,7 @@
 #
 astroid==2.15.6
     # via pylint
-black==23.9.1
+black==24.3.0
     # via moneymoney (pyproject.toml)
 build==0.10.0
     # via pip-tools
