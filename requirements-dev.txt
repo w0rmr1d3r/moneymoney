@@ -4,7 +4,7 @@
 #
 #    make freeze-dev
 #
-astroid==2.15.6
+astroid==3.1.0
     # via pylint
 black==24.3.0
     # via moneymoney (pyproject.toml)
